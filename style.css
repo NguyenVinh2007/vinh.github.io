@@ -1,0 +1,354 @@
+
+:root {
+    --primary-color: #00ff00; 
+    --secondary-color: #00ff08; 
+    --text-color: #333;
+    --light-bg: #ffffff;
+    --white: #03b803;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Header và Navigation */
+header {
+    background: var(--white);
+    color: var(--text-color);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 25px;
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-top: 3px solid var(--primary-color);
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--light-bg);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Các Nút (Buttons) */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #005f00;
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--white) !important;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.btn-cta:hover {
+    background-color: #3e8e41;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color) !important;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+}
+
+/* Phần Banner (Hero Section) */
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover; /* Thay bằng ảnh nền đẹp */
+    color: var(--white);
+    text-align: center;
+    padding: 150px 20px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Phần Tour Nổi Bật */
+.featured-tours {
+    padding: 50px 5%;
+    text-align: center;
+    background: var(--light-bg);
+}
+
+.featured-tours h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tour-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tour-card h3 {
+    margin: 15px;
+    color: var(--primary-color);
+}
+
+.tour-card p {
+    margin: 0 15px 15px 15px;
+    font-size: 0.9em;
+}
+
+.tour-card .btn-secondary {
+    margin: 0 15px 15px 15px;
+}
+
+/* CTA Phụ */
+.cta-secondary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 5%;
+}
+
+.cta-secondary h2 {
+    margin-bottom: 10px;
+}
+
+.btn-cta-small {
+    background-color: var(--white);
+    color: var(--primary-color) !important;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-cta-small:hover {
+    background-color: #e0e0e0;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 40px 5%;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-right: 20px;
+}
+
+.footer-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    color: #888;
+}
+
+/* Mobile responsive (cơ bản) */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+    }
+    nav {
+        display: none; /* Ẩn menu chính trên mobile */
+        width: 100%;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        background: var(--white);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--light-bg);
+    }
+    nav ul li a {
+        padding: 15px 20px;
+        display: block;
+    }
+
+    /* Hiển thị menu khi nhấn vào toggle */
+    nav.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: var(--text-color);
+    }
+
+    .hero {
+        padding: 100px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+/* Ẩn mobile toggle trên desktop */
+.menu-toggle {
+    display: none;
+}
