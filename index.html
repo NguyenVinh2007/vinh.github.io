@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du Lịch Sinh Thái Xanh - Green Eco-Tourism</title>
+    <!-- Tải Tailwind CSS để tạo kiểu nhanh chóng và phản hồi -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cấu hình Tailwind cho font Inter và màu sắc chính -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#065F46', // Xanh đậm, thân thiện với môi trường
+                        'light-green': '#A7F3D0', // Xanh nhạt cho nền
+                        'accent-teal': '#14B8A6', // Xanh ngọc cho điểm nhấn
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Đảm bảo cuộn mượt mà khi chuyển trang */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Style cho nút điều hướng active */
+        .nav-link.active {
+            font-weight: 700;
+            color: #14B8A6; /* Màu xanh ngọc nổi bật */
+            border-bottom: 2px solid #14B8A6;
+        }
+        /* Card effect đẹp hơn */
+        .eco-card {
+            transition: all 0.3s ease;
+        }
+        .eco-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(6, 95, 70, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <!-- Thanh Điều Hướng (Navigation Bar) -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-2 text-primary-green text-2xl font-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0l-7 7m7-7v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span>EcoTour Xanh</span>
+                </a>
+                <!-- Menu -->
+                <nav class="space-x-8 hidden md:flex">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-accent-teal transition duration-150 ease-in-out py-2 active">Trang Chủ</a>
+                    <a href="#guide" class="nav-link text-gray-600 hover:text-accent-teal transition duration-150 ease-in-out py-2">Hướng Dẫn Xanh</a>
+                    <a href="#community" class="nav-link text-gray-600 hover:text-accent-teal transition duration-150 ease-in-out py-2">Cộng Đồng</a>
+                    <a href="#register" class="px-4 py-2 bg-accent-teal text-white rounded-full hover:bg-primary-green transition duration-300 shadow-lg">Đăng Ký Tour</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Trang Chủ - Phần 1: Tour Sinh Thái & Banner -->
+        <section id="home" class="py-16 md:py-24 bg-light-green/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-primary-green leading-tight mb-4">
+                        Khám Phá Thiên Nhiên <span class="text-accent-teal">Bền Vững</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Tham gia các chuyến du lịch sinh thái độc đáo. Bảo tồn môi trường và trải nghiệm văn hóa địa phương một cách có trách nhiệm.
+                    </p>
+                    <a href="#tours" class="inline-block px-8 py-4 text-lg font-semibold bg-accent-teal text-white rounded-full hover:bg-primary-green transition duration-300 shadow-xl transform hover:scale-105">
+                        Xem Các Tour Hiện Có
+                    </a>
+                </div>
+                <div class="lg:w-5/12">
+                    <!-- Ảnh minh họa du lịch sinh thái -->
+                    <img src="https://placehold.co/600x400/065F46/FFFFFF?text=Du+lịch+sinh+thái" alt="Hình ảnh minh họa du lịch sinh thái và bảo tồn môi trường" class="rounded-xl shadow-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Trang Chủ - Phần 2: Tour Sinh Thái Nổi Bật -->
+        <section id="tours" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center text-primary-green mb-12">Các Tour Sinh Thái Nổi Bật</h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Tour 1 -->
+                    <div class="eco-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://placehold.co/400x250/14B8A6/FFFFFF?text=Rừng+Nguyên+Sinh" alt="Tour Rừng Nguyên Sinh" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-primary-green mb-2">Thám Hiểm Rừng Nguyên Sinh</h3>
+                            <p class="text-gray-600 mb-4">Khám phá đa dạng sinh học, tìm hiểu về thực vật quý hiếm và tham gia trồng rừng.</p>
+                            <span class="inline-block bg-light-green text-primary-green text-sm font-medium px-3 py-1 rounded-full">3 Ngày 2 Đêm</span>
+                        </div>
+                    </div>
+                    <!-- Tour 2 -->
+                    <div class="eco-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://placehold.co/400x250/14B8A6/FFFFFF?text=Thăm+Đảo+Xanh" alt="Tour Thăm Đảo Xanh" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-primary-green mb-2">Hành Trình Đảo Xanh</h3>
+                            <p class="text-gray-600 mb-4">Lặn biển ngắm san hô, thu gom rác thải biển và trải nghiệm cuộc sống ngư dân.</p>
+                            <span class="inline-block bg-light-green text-primary-green text-sm font-medium px-3 py-1 rounded-full">5 Ngày 4 Đêm</span>
+                        </div>
+                    </div>
+                    <!-- Tour 3 -->
+                    <div class="eco-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://placehold.co/400x250/14B8A6/FFFFFF?text=Văn+Hóa+Bản+Địa" alt="Tour Văn Hóa Bản Địa" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-primary-green mb-2">Trải Nghiệm Văn Hóa Bản Địa</h3>
+                            <p class="text-gray-600 mb-4">Tìm hiểu nghề thủ công truyền thống, ẩm thực địa phương và ủng hộ kinh tế cộng đồng.</p>
+                            <span class="inline-block bg-light-green text-primary-green text-sm font-medium px-3 py-1 rounded-full">2 Ngày 1 Đêm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trang Chủ - Phần 3: Lợi ích môi trường -->
+        <section class="py-16 bg-primary-green/90 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-12">Lợi Ích Môi Trường Mà Bạn Mang Lại</h2>
+
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Lợi ích 1 -->
+                    <div class="p-6 rounded-xl bg-primary-green/70 shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-accent-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2 1.343 2 3 2V8z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22a10 10 0 100-20 10 10 0 000 20zm0 0h.01" />
+                        </svg>
+                        <p class="text-2xl font-bold">100%</p>
+                        <p class="text-sm uppercase tracking-wider opacity-80">Đóng góp bảo tồn</p>
+                    </div>
+                    <!-- Lợi ích 2 -->
+                    <div class="p-6 rounded-xl bg-primary-green/70 shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-accent-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <p class="text-2xl font-bold">15+</p>
+                        <p class="text-sm uppercase tracking-wider opacity-80">Điểm nóng đa dạng sinh học</p>
+                    </div>
+                    <!-- Lợi ích 3 -->
+                    <div class="p-6 rounded-xl bg-primary-green/70 shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-accent-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253" />
+                        </svg>
+                        <p class="text-2xl font-bold">2000+</p>
+                        <p class="text-sm uppercase tracking-wider opacity-80">Cây xanh được trồng</p>
+                    </div>
+                    <!-- Lợi ích 4 -->
+                    <div class="p-6 rounded-xl bg-primary-green/70 shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-accent-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.317a6 6 0 001.272 1.487c.371.371.79.689 1.251.982.337.215.71.408 1.107.576.398.168.82.299 1.258.375.438.076.883.109 1.33.109h.001a11.972 11.972 0 00.322-.007c.438-.076.883-.109 1.33-.109.438-.076.883-.109 1.33-.109h.001c.438-.076.883-.109 1.33-.109z" />
+                        </svg>
+                        <p class="text-2xl font-bold">50+</p>
+                        <p class="text-sm uppercase tracking-wider opacity-80">Cộng đồng địa phương</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trang Hướng Dẫn - Quy tắc du lịch xanh, địa điểm, và video -->
+        <section id="guide" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center text-primary-green mb-16">Hướng Dẫn Du Lịch Xanh Có Trách Nhiệm</h2>
+
+                <!-- Quy tắc Du lịch Xanh -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-semibold text-accent-teal mb-6 border-b-2 border-accent-teal/50 pb-2">1. 10 Quy Tắc Vàng của EcoTour</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700">
+                        <ul class="list-none space-y-3">
+                            <li><span class="font-bold text-primary-green">01. Không rác thải:</span> Mang tất cả rác về theo bạn.</li>
+                            <li><span class="font-bold text-primary-green">02. Tôn trọng hệ sinh thái:</span> Không chạm, không hái, không cho động vật ăn.</li>
+                            <li><span class="font-bold text-primary-green">03. Tiết kiệm năng lượng:</span> Tắt đèn và điều hòa khi ra khỏi phòng.</li>
+                            <li><span class="font-bold text-primary-green">04. Ưu tiên sản phẩm địa phương:</span> Hỗ trợ kinh tế cộng đồng.</li>
+                        </ul>
+                        <ul class="list-none space-y-3">
+                            <li><span class="font-bold text-primary-green">05. Hạn chế sử dụng nhựa:</span> Dùng bình nước cá nhân và túi vải.</li>
+                            <li><span class="font-bold text-primary-green">06. Di chuyển xanh:</span> Ưu tiên đi bộ, xe đạp, hoặc phương tiện công cộng.</li>
+                            <li><span class="font-bold text-primary-green">07. Bảo tồn văn hóa:</span> Xin phép trước khi chụp ảnh người dân.</li>
+                            <li><span class="font-bold text-primary-green">08. Nước là vàng:</span> Hạn chế lãng phí nước.</li>
+                        </ul>
+                        <ul class="list-none space-y-3 md:col-span-2 lg:col-span-1">
+                            <li><span class="font-bold text-primary-green">09. Im lặng:</span> Giảm thiểu tiếng ồn tại khu vực hoang dã.</li>
+                            <li><span class="font-bold text-primary-green">10. Học hỏi:</span> Dành thời gian tìm hiểu về điểm đến.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Địa điểm Du lịch Xanh Tiêu biểu -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-semibold text-accent-teal mb-6 border-b-2 border-accent-teal/50 pb-2">2. Địa Điểm EcoTour Tiêu Biểu</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="p-6 bg-light-green rounded-xl shadow-md">
+                            <h4 class="text-xl font-bold text-primary-green mb-2">Vườn Quốc Gia Phong Nha - Kẻ Bàng</h4>
+                            <p class="text-gray-700">Di sản thiên nhiên thế giới, nổi tiếng với hệ thống hang động đá vôi khổng lồ và đa dạng sinh học. (Miền Trung)</p>
+                        </div>
+                        <div class="p-6 bg-light-green rounded-xl shadow-md">
+                            <h4 class="text-xl font-bold text-primary-green mb-2">Rừng Tràm Trà Sư - An Giang</h4>
+                            <p class="text-gray-700">Khu rừng ngập nước với thảm bèo xanh mướt, là nơi cư ngụ của nhiều loài chim quý hiếm. (Miền Nam)</p>
+                        </div>
+                        <div class="p-6 bg-light-green rounded-xl shadow-md md:col-span-2">
+                            <h4 class="text-xl font-bold text-primary-green mb-2">Cao Nguyên Đá Đồng Văn - Hà Giang</h4>
+                            <p class="text-gray-700">Khám phá công viên địa chất toàn cầu, tìm hiểu về cuộc sống của các dân tộc thiểu số và cảnh quan hùng vĩ. (Miền Bắc)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Hướng Dẫn (Giả định) -->
+                <div>
+                    <h3 class="text-3xl font-semibold text-accent-teal mb-6 border-b-2 border-accent-teal/50 pb-2">3. Video Hướng Dẫn Cần Thiết</h3>
+                    <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl">
+                        <!-- Giả lập video nhúng từ YouTube -->
+                        <div class="relative w-full h-96 bg-gray-200 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-red-500 opacity-70 absolute" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.05 6.94c-.2-.79-1.02-1.4-1.77-1.44C19.86 5 12 5 12 5s-7.86 0-9.28.5C1.97 5.54 1.15 6.15.95 6.94A15.35 15.35 0 0 0 1 12c0 1.95.14 3.9.72 5.06.2.79 1.02 1.4 1.77 1.44C4.14 19 12 19 12 19s7.86 0 9.28-.5c.75-.04 1.57-.65 1.77-1.44A15.35 15.35 0 0 0 23 12c0-1.95-.14-3.9-.72-5.06zM10 15V9l6 3-6 3z"/>
+                            </svg>
+                            <p class="text-xl text-gray-600">Video: Chuẩn bị hành trang cho chuyến EcoTour</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trang Cộng Đồng - Chia sẻ trải nghiệm, ảnh, và sự kiện bảo vệ môi trường -->
+        <section id="community" class="py-20 bg-light-green/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center text-primary-green mb-16">Góc Cộng Đồng Du Lịch Xanh</h2>
+
+                <!-- Chia sẻ Trải nghiệm và Ảnh (Gallery) -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-semibold text-primary-green mb-6 border-b-2 border-primary-green/50 pb-2">1. Khoảnh Khắc Xanh</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="aspect-square rounded-xl overflow-hidden shadow-lg eco-card">
+                            <img src="https://placehold.co/400x400/065F46/FFFFFF?text=Rừng+và+núi" alt="Ảnh cộng đồng 1" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-xl overflow-hidden shadow-lg eco-card">
+                            <img src="https://placehold.co/400x400/065F46/FFFFFF?text=Biển+và+rác" alt="Ảnh cộng đồng 2" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-xl overflow-hidden shadow-lg eco-card">
+                            <img src="https://placehold.co/400x400/065F46/FFFFFF?text=Làng+bản" alt="Ảnh cộng đồng 3" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-xl overflow-hidden shadow-lg eco-card">
+                            <img src="https://placehold.co/400x400/065F46/FFFFFF?text=Trồng+cây" alt="Ảnh cộng đồng 4" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sự kiện Bảo vệ Môi trường -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-semibold text-primary-green mb-6 border-b-2 border-primary-green/50 pb-2">2. Sự Kiện Bảo Vệ Môi Trường Sắp Tới</h3>
+                    <div class="space-y-4">
+                        <!-- Sự kiện 1 -->
+                        <div class="p-6 bg-white rounded-xl shadow-lg border border-accent-teal/30 flex flex-col md:flex-row justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-bold text-accent-teal">Ngày Hội Dọn Sạch Biển (Vũng Tàu)</h4>
+                                <p class="text-gray-600">Thời gian: 08:00, Thứ Bảy, 10/12/2025</p>
+                            </div>
+                            <button class="mt-4 md:mt-0 px-6 py-2 bg-primary-green text-white rounded-full hover:bg-accent-teal transition duration-300">Đăng Ký Tham Gia</button>
+                        </div>
+                        <!-- Sự kiện 2 -->
+                        <div class="p-6 bg-white rounded-xl shadow-lg border border-accent-teal/30 flex flex-col md:flex-row justify-between items-center">
+                            <div>
+                                <h4 class="text-xl font-bold text-accent-teal">Chiến Dịch Trồng Cây Rừng Ngập Mặn (Cà Mau)</h4>
+                                <p class="text-gray-600">Thời gian: 07:30, Chủ Nhật, 18/12/2025</p>
+                            </div>
+                            <button class="mt-4 md:mt-0 px-6 py-2 bg-primary-green text-white rounded-full hover:bg-accent-teal transition duration-300">Đăng Ký Tham Gia</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Chia sẻ -->
+                <div>
+                    <h3 class="text-3xl font-semibold text-primary-green mb-6 border-b-2 border-primary-green/50 pb-2">3. Chia Sẻ Câu Chuyện Của Bạn</h3>
+                    <form class="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700">Tên bạn</label>
+                            <input type="text" id="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-teal focus:ring focus:ring-accent-teal focus:ring-opacity-50 p-2">
+                        </div>
+                        <div class="mb-4">
+                            <label for="experience" class="block text-sm font-medium text-gray-700">Trải nghiệm du lịch sinh thái</label>
+                            <textarea id="experience" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-teal focus:ring focus:ring-accent-teal focus:ring-opacity-50 p-2"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="photo" class="block text-sm font-medium text-gray-700">Đính kèm Ảnh đẹp (Không hoạt động, chỉ là giả lập)</label>
+                            <input type="file" id="photo" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-light-green file:text-primary-green hover:file:bg-light-green/70">
+                        </div>
+                        <button type="submit" class="w-full px-4 py-2 text-white bg-accent-teal rounded-lg hover:bg-primary-green transition duration-300 font-semibold">Gửi Chia Sẻ</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Đăng Ký Tour (Lặp lại ở cuối trang) -->
+        <section id="register" class="py-16 bg-primary-green/95 text-white">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-4">Sẵn Sàng Cho Chuyến Đi Xanh?</h2>
+                <p class="text-lg opacity-80 mb-8">Đăng ký ngay để nhận ưu đãi và bắt đầu hành trình du lịch có trách nhiệm của bạn.</p>
+
+                <form class="bg-white p-8 rounded-xl shadow-2xl text-gray-800">
+                    <div class="mb-4">
+                        <input type="text" placeholder="Họ và Tên" class="p-3 w-full border border-gray-300 rounded-lg focus:border-accent-teal focus:ring focus:ring-accent-teal/50">
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" placeholder="Email của bạn" class="p-3 w-full border border-gray-300 rounded-lg focus:border-accent-teal focus:ring focus:ring-accent-teal/50">
+                    </div>
+                    <div class="mb-6">
+                        <select class="p-3 w-full border border-gray-300 rounded-lg focus:border-accent-teal focus:ring focus:ring-accent-teal/50">
+                            <option value="">Chọn tour quan tâm...</option>
+                            <option value="rung">Thám Hiểm Rừng Nguyên Sinh</option>
+                            <option value="dao">Hành Trình Đảo Xanh</option>
+                            <option value="vanhoa">Trải Nghiệm Văn Hóa Bản Địa</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full p-3 font-bold text-white bg-accent-teal rounded-lg hover:bg-primary-green transition duration-300 shadow-lg">
+                        Đăng Ký Nhận Tư Vấn
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-2">&copy; 2025 EcoTour Xanh. Du lịch có trách nhiệm, bảo tồn bền vững.</p>
+            <div class="space-x-4 text-sm opacity-80">
+                <a href="#" class="hover:text-accent-teal">Chính sách bảo mật</a>
+                <a href="#" class="hover:text-accent-teal">Điều khoản dịch vụ</a>
+                <a href="#" class="hover:text-accent-teal">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript để xử lý trạng thái active của menu và cuộn
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+
+            // Hàm cập nhật trạng thái active
+            const updateActiveLink = () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 70; // Trừ đi chiều cao header
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Xử lý Trang Chủ (Home) đặc biệt
+                if (current === 'home') {
+                    // Đảm bảo Trang Chủ luôn active khi ở trên cùng
+                    document.querySelector('a[href="#home"]').classList.add('active');
+                }
+            };
+
+            // Lắng nghe sự kiện cuộn
+            window.addEventListener('scroll', updateActiveLink);
+            // Cập nhật lần đầu khi tải trang
+            updateActiveLink();
+        });
+    </script>
+</body>
+</html>
